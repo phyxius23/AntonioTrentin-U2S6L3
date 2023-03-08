@@ -1,0 +1,24 @@
+/**
+ * @mixin animations
+ * questo devo fare un fade-in + discesa dall'alto di qualche px
+ * Durata, punto di inizio e di fine, delay, nome, saranno parametri in ingresso per differenziare l'animazione  
+ * sui diversi elementi della hero section. Il "nome" dovrà sempre essere univoco per ogni utilizzo di questo mixin.
+ */
+
+@mixin animations($duration, $delay, $name, $start, $end) {
+   position: relative;
+   top: $start;
+   opacity: 0;
+   animation: $name $duration linear $delay both;
+
+   @keyframes #{$name} {
+      from {
+         top: $start;
+         opacity: 0;
+      }
+      to {
+         top: $end;
+         opacity: 1;
+      }
+   }
+}

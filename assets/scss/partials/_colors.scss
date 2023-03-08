@@ -1,6 +1,8 @@
+// color del testo
 $text-color: #f4f4f4;
-$btn-color-blue: #0e6cff;
-$btn-color-orange: #ff8700;
-$btn-color-green: #4caf50;
+
+// background-color della hero section
 $bgHero: #640fc5;
-$btnColor: #0e6cff, #ff8700, #4caf50;
+
+// background-color dei button
+$btnColor: (1: #0e6cff, 2: #ff8700, 3: #4caf50);

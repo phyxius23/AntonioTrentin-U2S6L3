@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -16,42 +17,157 @@ a {
   text-decoration: none;
 }
 
+/**
+ * crea dinamicamente le classi per padding- e margin-:
+ * (block|inline)-
+ * (sm|md|lg|xl|xxl)
+ */
+.margin-block-sm {
+  margin-block: 10px;
+}
+
+.margin-block-md {
+  margin-block: 20px;
+}
+
+.margin-block-lg {
+  margin-block: 30px;
+}
+
+.margin-block-xl {
+  margin-block: 40px;
+}
+
+.margin-block-xxl {
+  margin-block: 80px;
+}
+
+.margin-inline-sm {
+  margin-inline: 10px;
+}
+
+.margin-inline-md {
+  margin-inline: 20px;
+}
+
+.margin-inline-lg {
+  margin-inline: 30px;
+}
+
+.margin-inline-xl {
+  margin-inline: 40px;
+}
+
+.margin-inline-xxl {
+  margin-inline: 80px;
+}
+
+.padding-block-sm {
+  padding-block: 10px;
+}
+
+.padding-block-md {
+  padding-block: 20px;
+}
+
+.padding-block-lg {
+  padding-block: 30px;
+}
+
+.padding-block-xl {
+  padding-block: 40px;
+}
+
+.padding-block-xxl {
+  padding-block: 80px;
+}
+
+.padding-inline-sm {
+  padding-inline: 10px;
+}
+
+.padding-inline-md {
+  padding-inline: 20px;
+}
+
+.padding-inline-lg {
+  padding-inline: 30px;
+}
+
+.padding-inline-xl {
+  padding-inline: 40px;
+}
+
+.padding-inline-xxl {
+  padding-inline: 80px;
+}
+
+/**
+ * genera dinamicamente le 3 classi dei bottoni a partire dalla lista dei colori corrispondenti
+*/
 .btn-color1 {
   background-color: #0e6cff;
+  color: #f4f4f4;
   display: inline-block;
   padding: 10px 20px;
   text-transform: uppercase;
-  color: #f4f4f4;
   margin-right: 20px;
 }
 
 .btn-color2 {
   background-color: #ff8700;
+  color: #f4f4f4;
   display: inline-block;
   padding: 10px 20px;
   text-transform: uppercase;
-  color: #f4f4f4;
   margin-right: 20px;
 }
 
 .btn-color3 {
   background-color: #4caf50;
+  color: #f4f4f4;
   display: inline-block;
   padding: 10px 20px;
   text-transform: uppercase;
-  color: #f4f4f4;
   margin-right: 20px;
 }
 
+/**
+ * @mixin grid
+ * qui verrà definita:
+ * griglia flex
+ * numero di elementi per linea che verranno determinati dal parametro in ingresso
+*/
+/**
+ * @mixin grid
+ * qui verrà definita:
+ * griglia flex
+ * numero di elementi per linea che verranno determinati dal parametro in ingresso
+*/
+/**
+ * @mixin floating
+ * qui verranno definite:
+ * border-radius, box-shadow and border (opzionale)
+ * Fai in modo da poter usare il mixin anche senza nessun argomento e imposta i tre valori per dare un senso di
+ * 'sollevamento' all'elemento che li riceverà. In questo caso lo useranno: l'immagine principale della hero,
+ * con un bordo chiaro, e quelle della griglia, ma con valori diversi e senza bordo.
+*/
+/**
+ * @mixin animations
+ * questo devo fare un fade-in + discesa dall'alto di qualche px
+ * Durata, punto di inizio e di fine, delay, nome, saranno parametri in ingresso per differenziare l'animazione  
+ * sui diversi elementi della hero section. Il "nome" dovrà sempre essere univoco per ogni utilizzo di questo mixin.
+ */
 body {
   font-family: "Roboto", sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 20px;
 }
 
 .container {
   max-width: 1200px;
   margin-inline: auto;
+  padding-inline: 30px;
 }
 
 header {
@@ -59,10 +175,16 @@ header {
 }
 header .flex {
   display: flex;
+  gap: 30px;
   justify-content: space-between;
+  align-items: center;
+}
+header .flex > div {
+  width: 50%;
 }
 header .flex .menu {
   display: flex;
+  justify-content: flex-end;
   gap: 20px;
 }
 header .flex .menu a {
@@ -77,35 +199,118 @@ header .flex .menu a {
 }
 .hero .flex {
   display: flex;
-  gap: 20px;
-  align-items: center;
+  gap: 30px;
 }
-.hero .flex > * {
+.hero .flex > div {
   width: 50%;
+}
+.hero .flex .hero__body .big-title {
+  font-size: 80px;
+  color: #f4f4f4;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  position: relative;
+  top: -200px;
+  opacity: 0;
+  animation: fadeInTitle 1s linear 0s both;
+}
+@keyframes fadeInTitle {
+  from {
+    top: -200px;
+    opacity: 0;
+  }
+  to {
+    top: 0px;
+    opacity: 1;
+  }
+}
+.hero .flex .hero__body .btn-color1 {
+  position: relative;
+  top: -200px;
+  opacity: 0;
+  animation: fadeInBtn 1s linear 1s both;
+}
+@keyframes fadeInBtn {
+  from {
+    top: -200px;
+    opacity: 0;
+  }
+  to {
+    top: 0px;
+    opacity: 1;
+  }
+}
+.hero .flex .hero__body .btn-color2 {
+  position: relative;
+  top: -200px;
+  opacity: 0;
+  animation: fadeInBtn 1s linear 1s both;
+}
+@keyframes fadeInBtn {
+  from {
+    top: -200px;
+    opacity: 0;
+  }
+  to {
+    top: 0px;
+    opacity: 1;
+  }
+}
+.hero .flex .hero__body .btn-color3 {
+  position: relative;
+  top: -200px;
+  opacity: 0;
+  animation: fadeInBtn 1s linear 1s both;
+}
+@keyframes fadeInBtn {
+  from {
+    top: -200px;
+    opacity: 0;
+  }
+  to {
+    top: 0px;
+    opacity: 1;
+  }
 }
 .hero .flex .hero__img {
   aspect-ratio: 1/1;
   background-image: url(https://picsum.photos/500/800);
   background-size: cover;
+  background-position: center;
+  border-radius: 30px;
+  box-shadow: 0px 0px 25px 5px rgba(255, 255, 255, 0.2);
+  border: 0;
+  position: relative;
+  top: -200px;
+  opacity: 0;
+  animation: fadeInImage 1s linear 1s both;
+}
+@keyframes fadeInImage {
+  from {
+    top: -200px;
+    opacity: 0;
+  }
+  to {
+    top: 0px;
+    opacity: 1;
+  }
 }
 
-.big-title {
-  font-size: 80px;
-  color: #f4f4f4;
-  line-height: 1.2;
-  margin-bottom: 20px;
+.cards {
+  margin-block: 60px;
 }
-
 .cards .flex {
   display: flex;
-  gap: 20px;
+  gap: 30px;
 }
-.cards .flex > * {
+.cards .flex > div {
   width: 25%;
 }
 .cards .card {
   aspect-ratio: 1/1;
-  border: 1px solid gray;
   background-image: url(https://picsum.photos/300);
   background-size: cover;
+  border-radius: 30px;
+  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.3);
+  border: 0;
 }/*# sourceMappingURL=style.css.map */

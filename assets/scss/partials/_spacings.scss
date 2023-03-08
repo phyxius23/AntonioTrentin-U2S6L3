@@ -1,1 +1,42 @@
+// width del container
 $valueWidth: 1200px;
+
+
+/**
+ * crea dinamicamente le classi per padding- e margin-:
+ * (block|inline)-
+ * (sm|md|lg|xl|xxl)
+ */
+
+// margin | padding
+$properties: margin padding;
+
+// margin-inline | margin-block | padding-inline | padding-block
+$positions: block inline;
+
+// breakpoint device
+$sizes: (
+  sm: 10px,
+  md: 20px,
+  lg: 30px,
+  xl: 40px,
+  xxl: 80px,
+);
+
+@each $property in $properties {
+   @each $position in $positions {
+      @each $key, $size in $sizes {
+         .#{$property}-#{$position}-#{$key} {
+            #{$property}-#{$position}: $size;
+         }
+      }
+   }
+}
+
+// @each $position in $positions {
+//    @each $key, $size in $sizes {
+//       .padding-#{$position}-#{$key} {
+//          padding-#{$position}: $size;
+//       }
+//    }
+// }

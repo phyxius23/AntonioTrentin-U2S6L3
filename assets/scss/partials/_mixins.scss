@@ -1,3 +1,10 @@
+/**
+ * @mixin grid
+ * qui verrà definita:
+ * griglia flex
+ * numero di elementi per linea che verranno determinati dal parametro in ingresso
+*/
+
 @mixin bigTitle($size){
    font-size: $size * $size-m;
    color: $text-color;
@@ -5,10 +12,33 @@
    margin-bottom: 20px;
 }
 
+
+/**
+ * @mixin grid
+ * qui verrà definita:
+ * griglia flex
+ * numero di elementi per linea che verranno determinati dal parametro in ingresso
+*/
+
 @mixin grid($numCol){
    display: flex;
-   gap: 20px;
-   & > * {
-      width: 100% / $numCol;
+   gap: 30px;
+   & > div {
+      width: calc(100% / $numCol);
    }
+}
+
+
+/**
+ * @mixin floating
+ * qui verranno definite:
+ * border-radius, box-shadow and border (opzionale)
+ * Fai in modo da poter usare il mixin anche senza nessun argomento e imposta i tre valori per dare un senso di
+ * 'sollevamento' all'elemento che li riceverà. In questo caso lo useranno: l'immagine principale della hero,
+ * con un bordo chiaro, e quelle della griglia, ma con valori diversi e senza bordo.
+*/
+@mixin floating($borderRadius: 0, $boxShadow: 0, $border: 0){
+   border-radius: $borderRadius;
+   box-shadow: $boxShadow;
+   border: $border;
 }

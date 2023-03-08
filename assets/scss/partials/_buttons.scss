@@ -1,14 +1,14 @@
-// generazione delle 3 classi dei bottoni
-$counter: 0; //counter per diversificare ogni button
+/**
+ * genera dinamicamente le 3 classi dei bottoni a partire dalla lista dei colori corrispondenti
+*/
 
-@each $color in $btnColor {
-   $counter: $counter+1;
-  .btn-color#{$counter} {
-    background-color: $color;
-    display: inline-block;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    color: $text-color;
-    margin-right: 20px;
-  }
+@each $counter, $color in $btnColor {
+   .btn-color#{$counter} {
+      background-color: $color;
+      color: $text-color;
+      display: inline-block;
+      padding: 10px 20px;
+      text-transform: uppercase;
+      margin-right: 20px;
+   }
 }
