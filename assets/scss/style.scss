@@ -5,3 +5,77 @@
 @import 'partials/buttons';
 @import 'partials/mixins';
 @import 'partials/animations';
+
+body {
+   font-family: $font-family;
+   font-weight: $weight-normal;
+   font-size: $size-m;
+}
+.container {
+   max-width: $valueWidth;
+   margin-inline: auto;
+}
+
+// SECTION HEADER
+header {
+   padding: 15px 0;
+   .flex {
+      display: flex;
+      justify-content: space-between;
+
+      .menu {
+         display: flex;
+         gap: 20px;
+
+         a {
+            font-size: $size-s;
+            text-transform: uppercase;
+            color: $bgHero;
+         }
+      }
+   }
+}
+
+// SECTION HERO
+.hero {
+   padding: 70px 0;
+   background-color: $bgHero;
+   .flex {
+      @include grid(
+         2
+      );
+      align-items: center;
+
+      .hero__img{
+         aspect-ratio: 1/1;
+         background-image: url(https://picsum.photos/500/800);
+         background-size: cover;
+      }
+   }
+}
+.big-title {
+   @include bigTitle(
+      4
+   )
+}
+
+// SECTION CARDS
+.cards {
+   .flex {
+      @include grid(
+         4
+      )
+   }
+   .card {
+      aspect-ratio: 1/1;
+      border:1px solid gray;
+      background-image: url(https://picsum.photos/300);
+      background-size: cover;
+   }
+
+}
+// .flex {
+//    @include grid(
+//       4
+//    )
+// }

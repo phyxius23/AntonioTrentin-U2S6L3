@@ -1,0 +1,14 @@
+@mixin bigTitle($size){
+   font-size: $size * $size-m;
+   color: $text-color;
+   line-height: 1.2;
+   margin-bottom: 20px;
+}
+
+@mixin grid($numCol){
+   display: flex;
+   gap: 20px;
+   & > * {
+      width: 100% / $numCol;
+   }
+}
